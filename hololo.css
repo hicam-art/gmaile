@@ -2,50 +2,104 @@ body {
   font-family: 'Arial', sans-serif;
   direction: rtl;
   text-align: center;
-  background-color: #f2f2f2;
-  padding: 50px;
+  background-color: #ffffff;
+  padding: 5vw;
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 h2 {
   color: #333;
+  font-size: 1.5rem;
+font-size: 3rem;
 }
 
-form {
-  background: #fff;
-  padding: 20px;
-  margin: auto;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+
 
 label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
   text-align: right;
+  font-size: 1rem;
 }
 
 input {
-  width: 90%;
+  margin-top: 2vh;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 4rem;
+  box-sizing: border-box;
+  width: 95%;
+  height: 8vh;
+  border-radius: 4vw;
 }
 
 button {
-   
-  padding: 10px 20px;
-  background-color: #1552a8;
+
+  padding: 12px 20px;
+  background-color: #3474db;
   border: none;
   border-radius: 5px;
-  color: rgb(255, 255, 255);
+  color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 3rem;
+  width: 100%;
+  height: 6vh;
+  width: 95%;
+  border-radius: 50px;
+  margin-top: 5vh;
 }
 
 button:hover {
   background-color: #2980b9;
+}
+.lo{
+
+  margin-top: 13vh;
+}
+.kalima{
+ background-color: #f2f2f2;
+ color: #2980b9;
+ font-size: 3rem;
+ border: solid ;
+}
+.logo {
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #030101;
+  border-radius: 50%;
+  width: 20vw;
+  height: 20vw;
+  margin: 0 auto  5px auto;
+  overflow: hidden;
+}
+form {
+ 
+  padding:0;
+  margin-top: 10vh;
+  max-width: 100%;
+  width: 100%;
+  height: 50vh;
+ 
+}
+
+/* تحسين إضافي للشاشات الصغيرة */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  input, button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .logo {
+    width: 35vw;
+    height: 35vw;
+  }
 }
