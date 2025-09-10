@@ -1,0 +1,10 @@
+.product-main{padding:2.5rem 0}
+.product-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.product-image img{width:100%;border-radius:6px}
+.product-info h2{margin-bottom:.5rem}
+.product-info .price{color:#25D366;font-size:1.4rem;font-weight:bold;margin:.75rem 0}
+.product-info p{line-height:1.7;margin-bottom:1.5rem}
+.product-info button{background:#25D366;color:#fff;border:none;padding:.75rem 1.5rem;border-radius:4px;font-size:1rem;cursor:pointer}
+@media(max-width:700px){
+  .product-grid{grid-template-columns:1fr}
+}

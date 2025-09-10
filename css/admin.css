@@ -1,0 +1,8 @@
+.admin-main{padding:2.5rem 0}
+form{display:grid;gap:.75rem;margin-bottom:2rem;max-width:600px}
+label{font-weight:bold}
+input,textarea{width:100%;padding:.5rem}
+button{padding:.5rem 1rem;cursor:pointer}
+table{width:100%;border-collapse-collapse;border:1px solid #ddd;margin-top:1rem}
+th,td{padding:.5rem;text-align:center;border:1px solid #ddd}
+td img{width:50px;height:50px;object-fit:cover;border-radius:4px}

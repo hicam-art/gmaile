@@ -1,0 +1,9 @@
+
+.cart-main{padding:2.5rem 0}
+#cartEmpty{text-align:center;margin:3rem 0;font-size:1.2rem}
+#cartTable{width:100%;border-collapse:collapse;margin:1.5rem 0}
+#cartTable th,#cartTable td{padding:.75rem;border:1px solid #ddd;text-align:center}
+#cartTable img{width:60px;height:60px;object-fit:cover;border-radius:4px}
+.qty-controls{display:flex;align-items:center;justify-content:center;gap:.5rem}
+.qty-controls button{width:28px;height:28px;border:1px solid #ccc;background:#fff;cursor:pointer}
+.cart-actions{display:flex;justify-content:space-between;margin-top:1rem}

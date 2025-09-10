@@ -1,0 +1,9 @@
+/* تنسيق شريط الفلتر */
+.filter-bar{display:flex;gap:1rem;margin:1rem 0;flex-wrap:wrap}
+.filter-bar input, .filter-bar select{
+  flex:1 1 220px;padding:.6rem;border:1px solid #ccc;border-radius:4px;font-size:1rem
+}
+
+/* شبكة المنتجات */
+.shop-main{padding:2.5rem 0}
+#productsGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem}

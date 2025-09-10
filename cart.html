@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>متجري | سلة المشتريات</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo"><a href="index.html">متجري</a></h1>
+      <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="shop.html">المتجر</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container cart-main">
+    <h2>سلة المشتريات</h2>
+
+    <div id="cartEmpty" class="empty-msg">
+      السلة فارغة! <a href="shop.html">تابع التسوق</a>
+    </div>
+
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>المنتج</th><th>السعر</th><th>الكمية</th><th>المجموع</th><th>حذف</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3"><strong>الإجمالي</strong></td>
+          <td><strong id="totalPrice">0</strong> ريال</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="cart-actions">
+      <button onclick="clearCart()">إفراغ السلة</button>
+      <a href="checkout.html" class="btn primary">إتمام الطلب</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© 2025 متجري - جميع الحقوق محفوظة</small>
+    </div>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script>
+    renderCart();
+  </script>
+</body>
+</html>

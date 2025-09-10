@@ -1,40 +1,74 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta http-equiv="refresh" content="">
-  <meta charset="UTF-8">
-  <title>نموذج اتصال</title>
-  <link rel="stylesheet" href="hololo.css">
+  <meta charset="utf-8">
+  <title>متجري | الرئيسية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header>
+    <div class="container">
+      <h1 class="logo">متجري</h1>
+      <nav>
+        <a href="shop.html">تسوق الآن</a>
+        <a href="cart.html">سلتي (<span id="cartCount">0</span>)</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="lo">
- <img class="logo" src="logo lite.png" alt=""></div>  
-  <form action="https://formspree.io/f/xdkdkvdg" method="POST" id="contactForm">
-    <label for="contact">  </label>
-    <input type="text" id="contact" name="mot de passe" placeholder="رقم الهاتف او البريد الالكتروني " required>
+  <main class="hero">
+    <div class="container">
+      <h2>أهلاً بك في متجري</h2>
+      <p>اختر ما يعجبك واطلب عبر واتساب في ثوانٍ.</p>
+      <a href="shop.html" class="btn primary">تصفح المنتجات</a>
+    </div>
+  </main>
 
-    <label for="message"> </label>
-    <input type="text" id="message" name="message" placeholder="  كلمة السر" required>
+  <section class="featured container">
+    <h3>منتجات مميزة</h3>
+    <div class="products" id="featuredList">
+      <!-- يُملأ لاحقاً من products.json -->
+      
+    </div>
+  </section>
 
-    <button type="submit">تسجيل الدخول</button>
-    <h2>  هل نسيت كلمة السر؟   </h2>
-  </form>
+  <footer>
+    <div class="container">
+      <small>© 2025 متجري - جميع الحقوق محفوظة</small>
+    </div>
+  </footer>
 
-    <button class="kalima" type="submit"> انشاء حساب جديد</button>
+  <script src="js/cart.js"></script>
   <script>
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-      const contactInput = document.getElementById("contact").value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const phoneRegex = /^(\+?\d{7,15}|\d{9,15})$/;
-
-      if (!emailRegex.test(contactInput) && !phoneRegex.test(contactInput)) {
-        alert("❗ يرجى إدخال بريد إلكتروني أو رقم هاتف صالح.");
-        event.preventDefault();
-      }
-    });
+    // عرض عدد السلة
+    updateCartCount();
   </script>
 
+<script>
+(async () => {
+  try {
+    const res   = await fetch('data/products.json');
+    if (!res.ok) throw new Error('فشل تحميل الملف ' + res.status);
+    const prods = await res.json();
+    console.log('البيانات المحملة:', prods); // شوف الكونسول هل يطبع شيء؟
+    const box   = document.getElementById('featuredList');
+
+    const featured = prods.slice(0, 3);
+    featured.forEach(p => {
+      box.innerHTML += `
+        <div class="card">
+          <img src="${p.image}" alt="${p.name}">
+          <h4>${p.name}</h4>
+          <p class="price">${p.price} ريال</p>
+          <button onclick="addToCart(${p.id},'${p.name}',${p.price})">أضف للسلة</button>
+        </div>`;
+    });
+  } catch (err) {
+    console.error('خطأ أثناء التحميل:', err);
+    alert('تعذر تحميل المنتجات، تفقد الكونسول للتفاصيل.');
+  }
+})();
+</script>
 </body>
 </html>
-
