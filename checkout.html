@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ملخص السلة</title>
+  <style>
+    body { font-family: Arial, sans-serif; direction: rtl; margin: 20px; }
+    h2 { margin-bottom: 10px; }
+    .product-item { display: flex; justify-content: space-between; margin: 5px 0; }
+    .cart-summary, .checkout-form { border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+    .total { font-weight: bold; margin-top: 10px; }
+    label { display: block; margin-top: 10px; }
+    input { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px 15px; background: green; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: darkgreen; }
+  </style>
+</head>
+<body>
+
+  <h2>🛒 ملخص السلة</h2>
+  <div id="cart-summary" class="cart-summary"></div>
+  <div class="total">الإجمالي: <span id="total-price">0.00</span> ر.س</div>
+
+  <h2>📋 بيانات العميل</h2>
+  <form id="checkout-form" class="checkout-form">
+    <label>الاسم الكامل:
+      <input type="text" name="fullName" required>
+    </label>
+    <label>رقم الهاتف:
+      <input type="tel" name="phone" required>
+    </label>
+    <label>العنوان:
+      <input type="text" name="address" required>
+    </label>
+    <button type="submit">إرسال الطلب عبر واتساب</button>
+  </form>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // استرجاع السلة
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const summaryDiv = document.getElementById('cart-summary');
+    const totalSpan  = document.getElementById('total-price');
+    let total = 0;
+
+    // عرض المنتجات
+    cart.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'product-item';
+      div.innerHTML = <span>${item.name}</span><span>${item.price} ر.س × ${item.quantity}</span>;
+      summaryDiv.appendChild(div);
+      total += parseFloat(item.price) * item.quantity;
+    });
+    totalSpan.textContent = total.toFixed(2);
+
+    // إرسال الطلب إلى واتساب
+    document.getElementById('checkout-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const customer = Object.fromEntries(new FormData(this).entries());
+
+      let productsText = '';
+      cart.forEach(item => {
+        productsText += • ${item.name} × ${item.quantity} = ${(parseFloat(item.price) * item.quantity).toFixed(2)} ر.س\n;
+      });
+
+      const message = `
+طلب جديد ✅
+الاسم: ${customer.fullName}
+الهاتف: ${customer.phone}
+العنوان: ${customer.address}
+
+المنتجات:
+${productsText}
+الإجمالي: ${total.toFixed(2)} ر.س
+      `.trim();
+
+      // ضع رقمك بدل 966501234567
+      const whatsappURL = https://wa.me/213558603017?text=${encodeURIComponent(message)};
+      window.open(whatsappURL, '_blank');
+
+      // تفريغ السلة
+      localStorage.removeItem('cart');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 2000);
+    });
+  });
+  </script>
+
+</body>
+</html>

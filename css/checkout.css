@@ -1,0 +1,94 @@
+/* checkout.css */
+
+:root {
+  --primary: #27ae60;
+  --primary-dark: #219653;
+  --grey-bg: #f7f7f7;
+  --white: #ffffff;
+  --border: #dddddd;
+  --text: #333333;
+  --radius: 8px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --font: "Tahoma", sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  margin: 0;
+  padding: 20px;
+  background: var(--grey-bg);
+  direction: rtl;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: var(--white);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+h2, h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: var(--text);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+button[type="submit"] {
+  background: var(--primary);
+  color: var(--white);
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: var(--primary-dark);
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
