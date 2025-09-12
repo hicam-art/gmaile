@@ -1,6 +1,7 @@
 /* إعادة تعيين بسيطة */
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Tahoma",Arial,sans-serif}
 body{background:#cccaca;color:#333;line-height:1.6}
+html, body {overflow-x:hidden;} /* منع التمرير الأفقي */
 
 /* حاوية مركزية */
 .container{width:90%;max-width:1100px;margin:auto}
@@ -32,15 +33,13 @@ header .container{display:flex;justify-content:space-between;align-items:center;
 /* الفوتر */
 footer{background:#222;color:#fff;text-align:center;padding:1.2rem 0;margin-top:3rem}
 
-
-
 /* حاوية الشعار + النص */
 .brand-show{
   display:flex;
   align-items:center;
   gap:1rem;
   animation: slideIn 1s ease-out forwards;
-  transform:translateX(-100vw); /* يبدأ خارج الشاشة من اليسار */
+  transform:translateX(-100%); /* يبدأ خارج نفسه فقط */
 }
 
 /* حجم الشعار */
