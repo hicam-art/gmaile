@@ -3,17 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>ملخص السلة</title>
-  <style>
-    body { font-family: Arial, sans-serif; direction: rtl; margin: 20px; }
-    h2 { margin-bottom: 10px; }
-    .product-item { display: flex; justify-content: space-between; margin: 5px 0; }
-    .cart-summary, .checkout-form { border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-    .total { font-weight: bold; margin-top: 10px; }
-    label { display: block; margin-top: 10px; }
-    input { width: 100%; padding: 8px; margin-top: 5px; }
-    button { margin-top: 15px; padding: 10px 15px; background: green; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    button:hover { background: darkgreen; }
-  </style>
+  
+<link rel="stylesheet" href="css/checkout.css">
+
 </head>
 <body>
 
@@ -47,7 +39,8 @@
     cart.forEach(item => {
       const div = document.createElement('div');
       div.className = 'product-item';
-      div.innerHTML = <span>${item.name}</span><span>${item.price} ر.س × ${item.quantity}</span>;
+      div.innerHTML = `<span>${item.name}</span> <span>${item.price} ر.س × ${item.quantity}</span>`;
+
       summaryDiv.appendChild(div);
       total += parseFloat(item.price) * item.quantity;
     });
@@ -60,7 +53,8 @@
 
       let productsText = '';
       cart.forEach(item => {
-        productsText += • ${item.name} × ${item.quantity} = ${(parseFloat(item.price) * item.quantity).toFixed(2)} ر.س\n;
+        productsText += `• ${item.name} × ${item.quantity} = ${(parseFloat(item.price) * item.quantity).toFixed(2)} ر.س\n`;
+
       });
 
       const message = `
@@ -75,7 +69,8 @@ ${productsText}
       `.trim();
 
       // ضع رقمك بدل 966501234567
-      const whatsappURL = https://wa.me/213558603017?text=${encodeURIComponent(message)};
+      const whatsappURL = `https://wa.me/213558603017?text=${encodeURIComponent(message)}`;
+
       window.open(whatsappURL, '_blank');
 
       // تفريغ السلة

@@ -27,6 +27,7 @@ body {
   padding: 25px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  box-sizing: border-box;
 }
 
 h2, h3 {
@@ -53,6 +54,7 @@ input, textarea {
   border-radius: var(--radius);
   font-size: 1rem;
   transition: border-color 0.3s;
+  box-sizing: border-box;
 }
 
 input:focus, textarea:focus {
@@ -63,8 +65,11 @@ input:focus, textarea:focus {
 .product-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 8px;
   padding: 8px 0;
   border-bottom: 1px solid #eee;
+  flex-wrap: wrap; /* يخلي العناصر تنزل تحت بعض في الشاشات الصغيرة */
 }
 
 button[type="submit"] {
@@ -82,13 +87,32 @@ button[type="submit"]:hover {
   background: var(--primary-dark);
 }
 
+/* للشاشات المتوسطة */
+@media (max-width: 900px) {
+  .container {
+    max-width: 95%;
+    padding: 20px;
+  }
+}
+
 /* للشاشات الصغيرة */
 @media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
   .container {
     padding: 15px;
   }
 
+  .product-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   button[type="submit"] {
     width: 100%;
+    padding: 14px;
+    font-size: 1.1rem;
   }
 }
